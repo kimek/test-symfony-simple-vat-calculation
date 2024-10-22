@@ -1,5 +1,0 @@
-services:
-  db:
-    image: mariadb:11.5.2-ubi9
-    environment:
-      MARIADB_ROOT_PASSWORD: root
