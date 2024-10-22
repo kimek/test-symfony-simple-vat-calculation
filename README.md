@@ -42,6 +42,7 @@ If IP in `.env` file is not same as MariaDB IP please correct it.
 
 ## Alternative installation
 Run below commands: 
+
 `docker run -q --detach --name test-mariadb --env MARIADB_ROOT_PASSWORD=root  mariadb:11.5.2`
 
 `php bin/console doctrine:database:create`
