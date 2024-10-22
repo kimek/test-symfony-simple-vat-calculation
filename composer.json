@@ -66,10 +66,7 @@
             "echo MariaDB enviroment: $(grep -P '^DATABASE_URL' .env)"
         ],
         "run-test-site" : [
-            "docker start test-mariadb",
-            "php bin/console doctrine:database:create --if-not-exists",
-            "php bin/console --no-interaction doctrine:migrations:migrate",
-            "symfony server:start"
+            "sh run.sh"
         ]
     },
     "conflict": {
