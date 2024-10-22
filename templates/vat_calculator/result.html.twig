@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VAT Calculation History{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>VAT Calculation</h1>
+
+        <p>Original Value: {{ value }} | VAT Amount: {{ vatAmount }} | Value with VAT: {{ valueWithVat }}</p>
+
+        <h2>Calculation History</h2>
+        <table>
+            <tr>
+                <th>Original Value</th>
+                <th>Value with VAT</th>
+                <th>VAT Amount</th>
+                <th>Date</th>
+            </tr>
+            {% for row in history %}
+                <tr>
+                    <td>{{ row.originalValue }}</td>
+                    <td>{{ row.valueWithVat }} </td>
+                    <td>{{ row.vatAmount }}</td>
+                    <td>{{ row.createdAt }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <p>
+            <a href="{{ path('vat_history_clear') }}">Clear History</a> |
+            <a href="{{ path('vat_history_export') }}">Export to CSV</a> |
+            <a href="{{ path('vat_history_all') }}" class="btn btn-secondary">Show All History</a>
+        </p>
+
+    </div>
+{% endblock %}

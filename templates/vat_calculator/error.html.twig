@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VAT Calculation Error{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>VAT Calculation error</h1>
+        <p>{{ message }}</p>
+        <p>Correct url format <br>http://127.0.0.1:8000/vat-calculate?vat=inc&rate=20&value=100</p>
+        <p>Example:<br>
+            <p>
+            <a href="http://127.0.0.1:8000/vat-calculate?vat=inc&rate=20&value=100">Include VAT | 20% Rate | 100 value</a><br>
+            or<br>
+            <a href="http://127.0.0.1:8000/vat-calculate?vat=ex&rate=30&value=100">Exclude VAT | 30% Rate | 100 value</a><br>
+        </p>
+        </p>
+    </div>
+{% endblock %}

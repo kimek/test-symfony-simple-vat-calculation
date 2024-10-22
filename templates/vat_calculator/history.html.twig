@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VAT Calculation History{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>VAT Calculation History</h1>
+
+        {% if history is empty %}
+            <p>No VAT calculations found.</p>
+        {% else %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Original Value</th>
+                    <th>VAT Amount</th>
+                    <th>Value with VAT</th>
+                    <th>Created At</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for record in history %}
+                    <tr>
+                        <td>{{ record.originalValue }}</td>
+                        <td>{{ record.vatAmount }}</td>
+                        <td>{{ record.valueWithVat }}</td>
+                        <td>{{ record.createdAt|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <a href="{{ path('vat_calculate') }}" class="btn btn-primary">Back to Calculator</a>
+    </div>
+{% endblock %}
