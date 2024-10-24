@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class VatCalculatorService
 {
 	const VAT_TYPE = ['ex', 'inc'];
-	private $entityManager;
+	private EntityManagerInterface $entityManager ;
 
 	public function __construct(EntityManagerInterface $entityManager)
 	{

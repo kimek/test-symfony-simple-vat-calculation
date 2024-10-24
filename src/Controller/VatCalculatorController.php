@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class VatCalculatorController extends AbstractController
 {
-	private $vatCalculatorService;
+	private VatCalculatorService $vatCalculatorService;
 
 	public function __construct(VatCalculatorService $vatCalculatorService)
 	{
@@ -106,8 +106,6 @@ class VatCalculatorController extends AbstractController
 	#[Route('/', name: 'home_page')]
 	public function homepage(SessionInterface $session): Response
 	{
-		$session->set('history', []);
-
 		return $this->redirectToRoute('vat_calculate');
 	}
 }
